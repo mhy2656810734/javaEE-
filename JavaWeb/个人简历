@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历</title>
+</head>
+<body>
+    <div style="border:3px solid black">  
+    <h1>小马的个人简历</h1>
+    <h2>基本信息</h2>
+    <img src="./meixi.jpg" alt="这是梅西的帅照" height="200px">
+    <p>
+        求职意向:Java工程师
+    </p>
+    <p>
+        联系电话:110
+    </p>
+    <p>
+        邮箱:1516.qq.com
+    </p>
+    <a href="www.github.com">我的github</a>
+    <a href="www.csdn.com">我的博客</a>
+    <h2>教育背景</h2>
+    <ol>
+        <li>
+            1990-1993 幼儿园
+        </li>
+        <li>
+            1994-1997 小学
+        </li>
+        <li>
+            1998-2001 中学
+        </li>
+        <li>
+            2002-2005 高中
+        </li>
+        <li
+        >2006-2009 大学
+    </li>
+    </ol>
+    <h2>专业技能</h2>
+    <ul>
+        <li>
+            java基础功扎实 已经刷了2000道题
+        </li>
+        <li>
+            熟悉数据结构 顺序表 单链表 双链表 哈希表
+        </li>
+        <li>
+            熟悉SQL,会熟练使用增删改查
+        </li>
+        <li>
+            熟悉数据库的事务和索引
+        </li>
+    </ul>
+    <h2>我的项目</h2>
+    <ol>
+        <li>
+            <h3>留言墙</h3>
+            <p>开发时间:2012-9-12</p>
+            <div>功能介绍</div>
+            <ul>
+                <li>支持留言</li>
+                <li>支持匿名留言</li>
+            </ul>
+        </li>
+        <li>
+            <h3>学习小助手</h3>
+            <p>开发时间:122255</p>
+            <div>功能介绍</div>
+            <ul>
+            
+                <li>支持题目的回顾</li>
+                <li>支持错题功能</li>
+            </ul>
+        </li>
+    </ol>
+    <h2>个人评价</h2>
+    在校期间,多次获得奖学金,获得过最佳射手
+</div>
+</body>
+</html>
