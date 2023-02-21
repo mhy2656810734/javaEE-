@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小马的第二个网页</title>
+</head>
+<body>
+    <!-- <style>
+        p{
+            color:red;
+            font-size: 100px;
+        }
+    </style>
+    <p>
+        这是一个段落
+    </p>
+    <p>
+        这是另一个段落
+    </p> -->
+    <!-- 类选择器 -->
+    <!-- <style>
+        .one{
+            color: red;
+        }
+
+        .two{
+            color:blue
+        }
+        
+        .three{
+            color:green;
+        }
+        
+        .four{
+            font-size: 100px;
+        }
+    </style> -->
+      <!-- <div class="one">
+        这是第一个div
+    </div>
+    <div class="two">
+        这是第二个div
+    </div>
+    <div class="three four">
+        这是第三个div
+    </div> -->
+    <!-- id选择器 -->
+    <!-- <style>
+        #oneDIV{
+            color: red;
+            font-size: 100px;
+        }
+
+        #twoDIV{
+            color: blue;
+        }
+    </style>
+    <div id="oneDIV">
+        这是第一个div
+    </div>
+    <div id="twoDIV">
+        这是第二个div
+    </div> -->
+    <!-- <style>
+        .one>li{
+            color: red;
+        }
+    </style>
+    <ol>
+        <li>aaa</li>
+        <li>bbb</li>
+        <li>ccc</li>
+    </ol>
+    <ul class="one">
+        <li>aaa</li>
+        <li>bbb</li>
+        <li>ccc</li>
+    </ul> -->
+    <!-- 并集选择器 -->
+    <!-- <style>
+        .two,.three{
+            color:red;
+            font-size: 100px;
+        }
+    </style>
+    <div class="one">
+        <a href="#" class="two">链接1 </a>
+        <p>
+            <a href="#" class="three">链接2</a>
+        </p>
+    </div> -->
+    <!-- <style>
+        .one:hover{
+            color:red;
+        }
+        .one:active{
+            color: blue;
+            font-size: 100px;
+        }
+    </style>
+    <div class="one">
+        这是一个div
+    </div> -->
+    <!-- <div font-finally="微软黑体">
+        这是一个div
+    </div> -->
+    <!-- <style>
+        .one{
+            font-size: 100px;
+            font-family: '微软黑体';
+        }
+    </style>
+    <div class="one">
+        这是一个div
+    </div> -->
+    <style>
+        .one{
+          color:rgb(255,255,0);
+        }
+    </style>
+    <div class="one">
+        这是一个div
+    </div>
+
+</body>
+</html>
