@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+</head>
+<body>
+    <script>
+        // alert('hellow');
+        // {
+        //    var a=10;
+        // }
+        
+        // console.log(a);
+        // {
+        //     let a=10;
+        // }
+        let a= 10;
+        console.log(a);
+    </script>
+    <!-- <script src="js.js">
+
+    </script> -->
+    <!-- <div onclick="console.log('hello')">这是一个div 点一下试试</div> -->
+</body>
+</html>
