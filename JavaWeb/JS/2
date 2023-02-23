@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+</head>
+<body>
+    <script>
+        // alert('hellow');
+        // {
+        //    var a=10;
+        // }
+        
+        // console.log(a);
+        // {
+        //     let a=10;
+        // }
+        // let a= 10;
+        // console.log(a);
+        //  a='hello';
+        //  console.log(a);
+        // let a = 10;
+        // let b = '10';
+        // console.log(a == b);
+        // let c = true;
+        // let d = 1;
+        // console.log(c == d);
+        // console.log(c === d);
+        // console.log(c !== d);
+        // let arr = new Array();
+        // let arr2 = [];
+        // let arr3 = [1,2,3,4];
+        // let arr4 = [1,'hello',true,[]];
+       // let arr = ['小美','小红','小绿','小蓝','小紫'];
+       // arr.push('小蓝');
+       //arr.splice(2,2);
+       //arr.splice(2,2,'萧炎','小玲');
+       //arr.splice(2,1,'阿雅',"紫");
+
+
+        // console.log(arr[0]);
+        // console.log(arr[1]);
+        // console.log(arr[2]);
+       // arr[100] = '小紫';
+       // console.log(arr);
+        // for(let i = 0; i < arr.length;i++) {
+        //     console.log(arr[i]);
+        // }
+        // 这里的i表示的是arr的下标
+        // for(let i in arr) {
+        //     console.log(arr[i]);
+        // }
+        // // 这里的elem 表示的是arr的每个元素
+        // for(let elem of arr) {
+        //     console.log(elem);
+        // }
+        // arr[-1] = '小蓝';
+        // arr['hello'] = '小黄';
+        //console.log('程序在正常运行');
+        // function add (x,y) {
+        //     return x+y;
+        // }
+        // console.log(add(10,20));
+     
+        // console.log(add('hello','world'));// 字符串相当于是拼接
+        // console.log(add(undefined,10));
+        // console.log(add(undefined,'10'));// 把undefined 转化成字符串然后拼接.
+        // console.log(add(10)); 
+        // console.log(add(10,20,30));  
+        // function add() {
+        //     let result = 0;
+        //     // 每个函数里面都会自动定义一个arguments 变量,是个数组,包含了所有实参.
+        //     for(let elem of arguments) {
+        //         result += elem;
+        //     }
+        //     return result;
+        // }
+        //    console.log(add(1,2));
+        // let add = function() {
+        //     let result = 0;
+        //     for(let elem of arguments) {
+        //         result += elem;
+        //     }
+        //     return result;
+        // }
+        // console.log(add(15,20));
+        // console.log(typeof(add));
+        // let num = 1;
+        // function text1() {
+        //     let num = 2;
+        //     function text2() {
+        //         let num  = 3;
+        //         console.log(num);
+        //     }
+        //     text2();
+        //     console.log(num);
+        // }
+        // text1();
+        // console.log("全局:"+num);
+
+        // 对象
+        // let student = {
+        //     name:"小马",
+        //     age:21,
+        //     height:170,
+        //     sing:function() {
+        //         console.log("即便你太美");
+        //     },
+        //     dance:function() {
+        //         console.log("你好");
+        //     }
+        // };
+        // console.log(student.name);
+        // console.log(student.age);
+        // student.sing();
+        // let student = new Object();
+        // student.name = '小马';
+        // student.age = 21;
+        // student.sing  = function() {
+        //     console.log('即使你太美');
+        // }
+        // console.log(student.name);
+        // console.log(student.age);
+        // student.sing();
+
+        
+    </script>
+    <!-- <script src="js.js">
+
+    </script> -->
+    <!-- <div onclick="console.log('hello')">这是一个div 点一下试试</div> -->
+</body>
+</html>
