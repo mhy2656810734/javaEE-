@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercise</title>
+</head>
+<body>
+    <script>
+        // 定义一个数组
+        let arr = [10,5,1,2,7,6,9,8];
+        // 定义一个冒泡函数
+        // function bubbleSort(arr) {
+        //     // 判断是否发生交换
+        //     let flag = true;
+        //     // 比较的趟数
+        //     for(let i = 0;i < arr.length -1;i++) {
+        //         // 比较的对数
+        //         for(let j = 0; j < arr.length -1 -i;j++) {
+        //             if (arr[j] > arr[j+1]) {
+        //                 let temp = arr[j];
+        //                 arr[j] = arr[j+1];
+        //                 arr[j+1] = temp;
+        //                 flag = false;
+        //             }
+        //         }
+        //          if (flag) {
+        //                 break;
+        //         }
+        //     }
+        // }
+        // bubbleSort(arr);
+        // console.log(arr);
+        // 定义一个快排
+        function quickSort(arr,start,end) {
+            if (start >= end) {
+                return;
+            }
+            // 三数取中法
+            let middle = findMiddle(arr,start,end);
+            swap(arr,start,middle);
+            // 调用快排
+            let pivot = quick3(arr,start,end);
+            quickSort(arr,start,pivot-1);
+            quickSort(arr,pivot+1,end);
+        }
+        //三数取中
+        function findMiddle(arr,start,end) {
+            let middle = (start + end) /2;
+            if (arr[start] < arr[end]) {
+                if (arr[middle] < arr[start]) {
+                    return start;
+                } else if (arr[middle] > arr[start]) {
+                    return middle;
+                } else {
+                    return end;
+                }
+            } else {
+                if (arr[end] >arr[middle]) {
+                    return end;
+                } else if (arr[end] < arr[middle]) {
+                    return middle;
+                } else {
+                    return start;
+                }
+            }
+        }
+        // 交换数组元素
+        function swap(arr,start,middle) {
+            let temp = arr[start];
+            arr[start] = arr[middle];
+            arr[middle] = temp;
+        }
+        // hero算法
+        function quick(arr,left,right) {
+            // 先记录当前初始位置的下标
+            let i = left;
+            // 开始循环找
+            while (left < right) {
+                // 从右往左找小
+                while (left < right && arr[right] >= arr[i]) {
+                    right--;
+                }
+                // 从左往右找大
+                while (left < right && arr[left] <= arr[i]) {
+                    left++;
+                }
+                // 找到了 开始交换
+                swap(arr,left,right);
+            }
+            // 将最开始的值和中间的left交换
+            swap(arr,left,i);
+            return left;
+        }
+        // 挖坑法
+        function quick2(arr,left,right) {
+            // 记住最开始的值
+            let pivot = arr[left];
+            while (left < right) {
+                while(left < right && arr[right] >= pivot) {
+                    right--;
+                }
+                // 找到了就覆盖之前坑位的数据
+                arr[left] = arr[right];
+                while (left < right && arr[left] <= pivot) {
+                    left++;
+                }
+                arr[right] = arr[left];
+            }
+            // 把最开始的值放到当前left下标处
+            arr[left] = pivot;
+            return left;
+        }
+        // 前后指针法
+        function quick3(arr,left,right) {
+            let prev = left;
+            let cur = left+1;
+            while (cur <= right) {
+                // 注意交换条件
+                while (arr[cur] < arr[left] && arr[++prev] != arr[cur]) {
+                    swap(arr,prev,cur);
+                }
+                cur++;
+            }
+            swap(arr,left,prev);
+            return prev;
+        }
+        quickSort(arr,0,arr.length-1);
+       console.log(arr);
+    </script>
+</body>
+</html>
