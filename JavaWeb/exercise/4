@@ -1,0 +1,29 @@
+<body>
+    <script>
+        // 定义一个数组
+        let arr = [10,5,1,2,7,6,9,8];
+        // 定义一个冒泡函数
+        function bubbleSort(arr) {
+            // 判断是否发生交换
+            let flag = true;
+            // 比较的趟数
+            for(let i = 0;i < arr.length -1;i++) {
+                // 比较的对数
+                for(let j = 0; j < arr.length -1 -i;j++) {
+                    if (arr[j] > arr[j+1]) {
+                        let temp = arr[j];
+                        arr[j] = arr[j+1];
+                        arr[j+1] = temp;
+                        flag = false;
+                    }
+                }
+                 if (flag) {
+                        break;
+                }
+            }
+        }
+        bubbleSort(arr);
+        console.log(arr);
+    </script>
+</body>
+</html>
