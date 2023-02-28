@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜数字游戏</title>
+</head>
+<body>
+    <h3>
+        请输入你要猜测的数字
+    </h3>
+    <!-- 使用这个div来显示结果 -->
+    <div class="result"></div>
+    <input type="text">
+    <button>提交</button>
+    <script>
+        // 创建随机数
+        let guessNum = parseInt(100*Math.random()) + 1;
+          console.log(guessNum);
+        let resultDiv = document.querySelector('.result');
+        let button = document.querySelector('button');
+        let input = document.querySelector('input');
+        button.onclick = function() {
+            // 如果用户没输入就返回
+            if (input.value == '') {
+                return;
+            }
+            // 读取输入框中的内容 然后判断大小
+            let guess = parseInt(input.value);
+            // 比较大小
+            if (guess < guessNum) {
+                resultDiv.innerHTML = '猜小了'
+            } else if (guess > guessNum) {
+                resultDiv.innerHTML = '猜大了'
+            } else {
+                resultDiv.innerHTML = '猜对了'
+            }
+        }
+    </script>
+</body>
+</html>
