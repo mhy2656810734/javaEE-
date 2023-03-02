@@ -42,4 +42,8 @@ background-color: rgb(255, 255, 255);
 #submit:active{
     background-color:#666;
 }
-
+#editor{
+    border-radius: 10px;
+    /* 设置背景半透明 */
+    opacity: 80%;
+}
