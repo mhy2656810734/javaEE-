@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小马</title>
+</head>
+<body>
+   
+     <!-- <p id="one">这是第一个段落</p>
+    <p  id="two">这是第二个段落</p>
+    <p>这是第三个段落</p>
+    <style>
+        #one{
+            color: red;
+        }
+        #two{
+            color: blue;
+        }
+    </style> -->
+    <!-- <ul class="one">
+        <li>aaa</li>
+        <li>bbb</li>
+        <li>ccc</li>
+        <div>
+            <ul>
+                <li>小马</li>
+            </ul>
+        </div>
+    </ul>
+    <style>
+        .one li{
+            color:red;
+        }
+    </style> -->
+    <!-- <div class="one">
+        这是第一个段落
+    </div>
+    <div class="two">
+        这是第二个段落
+    </div>
+    <style>
+        .one:hover{
+            color:red;
+        }
+        .two:active{
+            color: blue;
+        }
+    </style> -->
+    <!-- <div class="one">
+        这是第一个段落
+    </div>
+    <div class="two">
+        这是第二个段落
+    </div>
+    <div class="three">
+        这是第三个段落
+    </div>
+    <div class="four">
+        这是第四个段落
+    </div>
+    <style>
+        .one{
+            font-family: '微软雅黑';
+            font-size: 20px;
+        }
+        .two{
+            font-family: '宋体';
+            font-size: 50px;
+        }
+        .three{
+            font-family: '黑体';
+            font-size: 80px;
+        }
+        .four{
+            font-family: '华文行楷';
+            font-size: 110px;
+        }
+    </style> -->
+    <!-- <div class="one">
+        这是第一个段落
+    </div>
+    <div class="two">
+        这是第二个段落
+    </div>
+    <div class="three">
+        这是第三个段落
+    </div>
+    <style>
+        .one{
+            font-weight: 200;
+            font-style: italic;
+        }
+        .two{
+            font-weight: 400;
+            font-style: normal;
+        }
+        .three{
+            font-weight: 700;
+            font-style: oblique;
+        }
+    </style> -->
+    <!-- <div class="one">
+        这是第一个段落
+    </div>
+    <div class="two">
+        这是第二个段落
+    </div>
+    <div class="three">
+        这是第三个段落
+    </div>
+    <style>
+        .one{
+            /* color:rgb(255,0,0); */
+            /* color: #ff0000; */
+            color:#f00;
+        }
+        .two{
+            color:rgb(0,255,0)
+        }
+        .three{
+            color:rgb(0, 0,255)
+        }
+    </style> -->
+    <!-- <div class="one">
+        这是第一个段落
+    </div>
+    <div class="two">
+        这是第二个段落
+    </div>
+    <div class="three">
+        这是第三个段落
+    </div>
+    <a href="#">链接1</a>
+    <style>
+        .one{
+          text-align: left;
+        }
+        .two{
+           text-align: center;
+        }
+        .three{
+           text-align: right;
+        }
+    </style> -->
+    <div class="one">
+        这是第一个段落
+    </div>
+    <div class="two">
+        这是第二个段落
+    </div>
+    <div class="three">
+        这是第三个段落
+    </div>
+    <a href="#">链接1</a>
+    <style>
+        .one{
+          text-decoration:overline;
+        }
+        .two{
+           text-decoration:underline;
+        }
+        .three{
+           text-decoration: line-through;
+        }
+      a{
+            text-decoration: none;
+        }
+    </style>
+</body>
+</html>
