@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品列表</title>
+</head>
+<body>
+    <div class="one">
+        <div class="two">
+            <span><img src="../../博客系统/image/球鞋1.jpg"></span>
+            <span><img src="../../博客系统/image/球鞋2.jpg"></span>
+            <span><img src="../../博客系统/image/球鞋3.jpg"></span>
+            <span><img src="../../博客系统/image/球鞋4.jpg"></span>
+           <span> <img src="../../博客系统/image/球鞋5.jpg"></span>
+           <span> <img src="../../博客系统/image/球鞋2.jpg"></span>
+        </div>
+        <div class="three">
+            <span><img src="../../博客系统/image/球鞋1.jpg"></span>
+            <span><img src="../../博客系统/image/球鞋2.jpg"></span>
+            <span><img src="../../博客系统/image/球鞋3.jpg"></span>
+            <span><img src="../../博客系统/image/球鞋4.jpg"></span>
+           <span> <img src="../../博客系统/image/球鞋5.jpg"></span>
+           <span> <img src="../../博客系统/image/球鞋2.jpg"></span>
+        </div>
+    </div>
+    <style>
+        .one{
+            width: 1400px;
+            height:490px;
+            background-color: orange;
+            padding: 2px;
+        }
+        .two,.three{
+            width: 100%;
+            height: 240px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .three{
+            margin-top: 5px;
+        }
+        img{
+            width: 215px;
+            height: 230px;
+        }
+        span{
+            margin: 10px;
+        }
+    </style>
+</body>
+</html>
