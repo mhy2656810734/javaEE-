@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小马</title>
+</head>
+<body>
+   
+     <!-- <p id="one">这是第一个段落</p>
+    <p  id="two">这是第二个段落</p>
+    <p>这是第三个段落</p>
+    <style>
+        #one{
+            color: red;
+        }
+        #two{
+            color: blue;
+        }
+    </style> -->
+    <!-- <ul class="one">
+        <li>aaa</li>
+        <li>bbb</li>
+        <li>ccc</li>
+        <div>
+            <ul>
+                <li>小马</li>
+            </ul>
+        </div>
+    </ul>
+    <style>
+        .one li{
+            color:red;
+        }
+    </style> -->
+    <!-- <div class="one">
+        这是第一个段落
+    </div>
+    <div class="two">
+        这是第二个段落
+    </div>
+    <style>
+        .one:hover{
+            color:red;
+        }
+        .two:active{
+            color: blue;
+        }
+    </style> -->
+    <!-- <div class="one">
+        这是第一个段落
+    </div>
+    <div class="two">
+        这是第二个段落
+    </div>
+    <div class="three">
+        这是第三个段落
+    </div>
+    <div class="four">
+        这是第四个段落
+    </div>
+    <style>
+        .one{
+            font-family: '微软雅黑';
+            font-size: 20px;
+        }
+        .two{
+            font-family: '宋体';
+            font-size: 50px;
+        }
+        .three{
+            font-family: '黑体';
+            font-size: 80px;
+        }
+        .four{
+            font-family: '华文行楷';
+            font-size: 110px;
+        }
+    </style> -->
+    <!-- <div class="one">
+        这是第一个段落
+    </div>
+    <div class="two">
+        这是第二个段落
+    </div>
+    <div class="three">
+        这是第三个段落
+    </div>
+    <style>
+        .one{
+            font-weight: 200;
+            font-style: italic;
+        }
+        .two{
+            font-weight: 400;
+            font-style: normal;
+        }
+        .three{
+            font-weight: 700;
+            font-style: oblique;
+        }
+    </style> -->
+    <!-- <div class="one">
+        这是第一个段落
+    </div>
+    <div class="two">
+        这是第二个段落
+    </div>
+    <div class="three">
+        这是第三个段落
+    </div>
+    <style>
+        .one{
+            /* color:rgb(255,0,0); */
+            /* color: #ff0000; */
+            color:#f00;
+        }
+        .two{
+            color:rgb(0,255,0)
+        }
+        .three{
+            color:rgb(0, 0,255)
+        }
+    </style> -->
+    <!-- <div class="one">
+        这是第一个段落
+    </div>
+    <div class="two">
+        这是第二个段落
+    </div>
+    <div class="three">
+        这是第三个段落
+    </div>
+    <a href="#">链接1</a>
+    <style>
+        .one{
+          text-align: left;
+        }
+        .two{
+           text-align: center;
+        }
+        .three{
+           text-align: right;
+        }
+    </style> -->
+    <!-- <div class="one">
+        这是第一个段落
+    </div>
+    <div class="two">
+        这是第二个段落
+    </div>
+    <div class="three">
+        这是第三个段落
+    </div>
+    <a href="#">链接1</a>
+    <style>
+        .one{
+          text-decoration:overline;
+        }
+        .two{
+           text-decoration:underline;
+        }
+        .three{
+           text-decoration: line-through;
+        }
+      a{
+            text-decoration: none;
+        }
+    </style> -->
+    <!-- <div class="one">
+        这是第一个段落
+    </div>
+    <div class="two">
+        这是第二个段落Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque tenetur sed quam dolorum iste. Distinctio animi modi harum possimus, nisi voluptate dolore cumque commodi voluptatibus dicta aliquid odio provident sit!
+    </div>
+    <style>
+        .two{
+            background-color: red;
+        }
+    </style> -->
+    <!-- <div class="one">
+        这是第一个段落Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum ad dicta aliquid cum adipisci, corporis ratione magnam animi laboriosam. Enim esse nam minus doloremque laborum rem, ducimus iure fugit. Eaque.
+    </div>
+    <style>
+        div{
+            height: 2000px;
+            background-image: url(../../博客系统/image/小马.jpg);
+            background-repeat: no-repeat;
+            background-position: left top;
+            /* background-size: 500px 1000px; */
+            background-size: cover;
+
+        }
+    </style> -->
+    <!-- <div class="one">
+    </div>
+<style>
+    div{
+        width: 400px;
+        height: 80px;
+        border: 5px red  solid;
+        box-sizing: border-box;
+    }
+</style> -->
+<!-- <div class="one">
+    <div class="two">
+        这是里面元素
+    </div>
+    <div class="thrree">
+        这是二
+    </div>
+</div>
+<style>
+    .one{
+        width: 400px;
+        height:200px;
+        border: 5px red solid;
+        box-sizing: border-box;
+    }
+    .two{
+        width: 100px;
+        height: 40x;
+        padding: 10px;
+        border: 5px blue solid;
+        box-sizing: border-box;
+    }
+
+</style> -->
+    <!-- <div class="one">
+        这是第一个div
+    </div>
+    <div class="two">
+        这是第二个div
+    </div> -->
+    <!-- <style>
+        .one{
+            width: 200px;
+            height: 50px;
+            border: 5px red solid;
+            box-sizing: border-box;
+            margin-left: auto;
+            margin-right: auto;
+        } -->
+        <!-- /* .two{
+            width: 150;
+            border: 5px blue dashed;
+            box-sizing: border-box;
+        } */ -->
+    <!-- /* </style> --> 
+    <!-- <div class="one">
+        <div class="two">
+            这是里面元素
+        </div>
+    </div>
+    <style>
+        .one{
+            width: 400px;
+            height:200px;
+            border: 5px red solid;
+            box-sizing: border-box;
+        }
+        .two{
+            width: 100px;
+            height: 40x;
+            padding: 10px;
+            border: 5px blue solid;
+            box-sizing: border-box;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    
+    </style> -->
+    <!-- <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+    </div>
+    <style>
+        .div{
+            width: 1000px;
+            height: 60px;
+            background-color:red;
+        }
+    </style> -->
+    <div class="one">
+        <span>1</span><span>2</span><span>3</span>
+    </div>
+    <style>
+        div{
+            height: 200px;
+            width: 1000px;
+            background-color: red;
+            display: flex;
+            /* justify-content: space-around; */
+            justify-content: space-between;
+            /* align-items: center; */
+            align-items: flex-end;
+        }
+        div>span{
+            background-color: green;
+            height: 100px;
+            width: 300px;
+        }
+    </style>
+    </body>
+</html>
