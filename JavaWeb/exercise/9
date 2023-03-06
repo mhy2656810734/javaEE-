@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习JS</title>
+</head>
+<body>
+    <script>
+        // let a = 10;
+        // let b = '10';
+        // console.log(a == b);
+        // let c = 1;
+        // let d = true;
+        // console.log(c === d);
+        // 创建数组的三种方式
+        let arr = new Array();
+        let arr1 = [];
+        let arr2 = [1,2,3];
+        let arr3 = [1,'hello',true];
+        // console.log(arr3[0]);
+        // console.log(arr3[1]);
+        // console.log(arr3[2]);
+        // console.log(arr3[3]);
+        // console.log(arr3);
+        // console.log(arr3[100]);
+        // arr3[100] = '小美';
+        // console.log(arr3);
+        // arr3[-1] = '小马';
+        // console.log(arr3);
+
+        // 打印数组元素的三种方式
+        // for(let i = 0; i < arr3.length;i++) {
+        //     console.log(arr3[i]);
+        // }
+        // of 直接表示元素
+        // for(let emlem of arr3) {
+        //     console.log(emlem);
+        // }
+        // // in 使用下标
+        // for(let i in arr3) {
+        //     console.log(arr3[i]);
+        // } 
+
+
+        // 添加元素  尾插法
+        // arr3.push('小马666');
+        // console.log(arr3);
+        
+        // 使用splice     splice(起始位置,几个数据,变长参数...)   把后面变长参数的内容 替换到前面的指定区间之内.
+        // 如果后面没有变长参数,就相当于删除,
+        // arr3.splice(0,1);
+       
+        // 如果后面变长参数和指定区间的个数一样,此时就是修改/替换
+        // arr3.splice(0,2,'小马','小李');
+        
+        // 如果后面变长参数比指定区间的个数长,此时就是新增.
+        // arr3.splice(2,1,'111','hello','world');
+        // console.log(arr3);
+        // function add(x,y) {
+        //     return x+y;
+        // }
+        // console.log(add(10,1));
+        // console.log(add(10));
+        // console.log(add(1,2,3));
+        // console.log(add(undefined,10));
+        // console.log(add(undefined,'10'));
+        // console.log(add(10,'hello'));
+
+        // let add = function() {
+        //     let ret = 0;
+        //     for(let elem of arguments) {
+        //         ret += elem;
+        //     }
+        //     return ret;
+        // }
+        // console.log(add(10,1));
+        // console.log(add(10));
+        // console.log(add(1,2,3));
+        // console.log(typeof(add))
+
+        // JS 变量的作用域
+        // 先找当前作用域,如果没有 就往上层找,一直往上到全局作用域,如果还找不到就报错/undefined
+        // let a = 10;
+        // function text1() {
+        //     let a = 20;
+        //     function text2() {
+        //         let a = 30;
+        //         console.log('text2:'+a);
+        //     }
+        //     text2();
+        //     console.log('text1:'+a);
+        // }
+        // text1();
+        // console.log(a);
+
+
+        // JS 中的对象
+        let student = {
+            name:'蔡哥',
+            age:25,
+            height:182,
+            sing: function() {
+                console.log('基尼太美');
+            },
+            dance: function() {
+                console.log('打篮球')
+            }
+        }
+        console.log(student.name);
+        console.log(student.age);
+        console.log(student.height);
+        student.sing();
+        student.dance();
+        
+        let student1 = new Object();
+        student1.name = '小马';
+        student1.age = 22;
+        student1.height = 172;
+        student1.sing = function() {
+            console.log('小马唱歌');
+        }
+        student1.dance = function(){
+            console.log('小马跳舞');
+        }
+        console.log(student1.name);
+        console.log(student1.age);
+        console.log(student1.height);
+        student1.sing();
+        student1.dance();
+    </script>
+</body>
+</html>
