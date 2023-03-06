@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom</title>
+</head>
+<body>
+    <div class="box"></div>
+    <!-- <div class="box"></div> -->
+    <style>
+        .box{
+            width: 100px;
+            height: 200px;
+            background-color: orange;
+        }
+    </style>
+    <script>
+        // document 是浏览器的全局对象,任何一个界面都有一个document 对象
+        // 所有的 dom api 都是通过 document 对象来展开的.
+        
+        let elem = document.querySelector('.box');
+        // for(let e of elem) {
+        //     console.log(e);
+        // }
+        console.dir(elem)
+    </script>
+</body>
+</html>
