@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom</title>
+</head>
+<body>
+    <!-- <div class="box"></div>
+    <div class="box"></div> -->
+    <!-- <style>
+        .box{
+            width: 100px;
+            height: 200px;
+            background-color: orange;
+        }
+    </style> -->
+    <!-- <script> -->
+        <!-- // document 是浏览器的全局对象,任何一个界面都有一个document 对象
+        // 所有的 dom api 都是通过 document 对象来展开的.
+        
+        // let elem = document.querySelector('.box');
+        // for(let e of elem) {
+        //     console.log(e);
+        // }
+        // console.dir(elem) -->
+<!-- 
+    </script>  -->
+
+    <!-- <div class="box" onclick="alert('hello')">abc</div> -->
+    <!-- <div class="box">cccc</div>
+    <script>
+        let div = document.querySelector('.box');
+        div.onclick = function() {
+            alert('hello');
+        }
+
+    </script> -->
+    <!-- <div class="box">ccc</div>
+    <script>
+
+        // 获取/修改元素内容  使用innerHTML属性
+
+        let div = document.querySelector('.box');
+        div.onclick = function() {
+            console.log(div.innerHTML);
+            div.innerHTML += 'a';
+            console.log(div.innerHTML);
+        }
+    </script> -->
+
+    <!-- 获取/修改 元素属性 -->
+    <!-- <img src="../../博客系统/image/小马.jpg" alt="这是小马的帅照" title="这是小马">
+    <script>
+        let img = document.querySelector('img');
+        img.onclick = function() {
+            console.log(img.src);
+            console.log(img.title);
+            console.log(img.alt);
+            console.log(img.width);
+            img.src = '../../博客系统/image/头像.jpg';
+        }
+    </script> -->
+
+       <!-- 获取/修改表单元素属性 -->
+       <!-- <input type="text">
+       <button>点击+1</button>
+       <script>
+        let input = document.querySelector('input');
+        let button = document.querySelector('button');
+        button.onclick = function() {
+            // input.value 得到的是一个字符串,必须转成数字之后才能+1
+            // let value = input.value;
+            let value = parseInt(input.value);
+            value += 1;
+            input.value = value;
+        }
+       </script> -->
+       <!-- <input type="text">
+       <button>隐藏密码</button>
+       <script>
+        let input = document.querySelector('input');
+        let button = document.querySelector('button');
+        button.onclick = function() {
+            if (input.type === 'text') {
+                input.type = 'password';
+                button.innerHTML = '显示密码';
+            } else {
+                input.type = 'text';
+                button.innerHTML = '隐藏密码';
+            }
+        }
+       </script> -->
+
+
+       <!-- 获取/修改样式属性 -->
+       <!-- 1.修改内联样式    修改style属性的值-->
+       <!-- <div style="font-size: 20px;">这是一个字体,点击之后放大</div>
+       <script>
+        let div = document.querySelector('div');
+        div.onclick = function() {
+            console.log(div.style.fontSize)
+            let size = parseInt(div.style.fontSize);
+            // 加20 之后要拼接px
+            size += 20;
+            div.style.fontSize = size+'px';
+        }
+       </script> -->
+       <!-- <div class="light">白天模式</div>
+       <style>
+        .light{
+            color: black;
+            width: 500px;
+            height: 700px;
+            background-color: white;
+        }
+        .dart{
+            color:white;
+            background-color: black;
+            width: 500px;
+            height: 700px
+
+        }
+       </style>
+       <script>
+        let div =  document.querySelector('.light');
+        div.onclick=function() {
+            if (div.className =='light') {
+                div.className = 'dart';
+                div.innerHTML = '夜间模式'
+            } else {
+                div.className = 'light';
+                div.innerHTML = '白天模式'
+            }
+        } -->
+       <!-- </script> -->
+       <!-- <div class="one">这是一个div</div>
+       <input type="text">
+       <script>
+        let input = document.querySelector('input');
+        input.value = 'hello';
+        let div = document.querySelector('.one');
+        div.appendChild(input); -->
+       <!-- </script> -->
+       <ul>
+        <li>11</li>
+        <li>22</li>
+       </ul>
+       <script>
+        let ul = document.querySelector('ul');
+        for(let i = 3; i < 6;i++) {
+            // 创建一个 li
+            let li = document.createElement('li');
+            li.innerHTML = i+''+i;
+            // 然后拼接到无序列表的后面
+            ul.appendChild(li);
+        }
+        // 删除33这个元素
+        let toDelete = document.querySelectorAll('li')[2];
+        console.log(toDelete);
+        ul.removeChild(toDelete);
+       </script>
+</body>
+</html>
