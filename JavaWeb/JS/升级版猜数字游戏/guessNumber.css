@@ -1,0 +1,40 @@
+.maxDiv,.minDiv{
+    width: 100%;
+    height: 70px;
+    /* 开启弹性布局全部居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.oneButton{
+    text-align: center;
+    height: 50px;
+    width: 200px;
+    font-size: px;
+    background-color: orange;
+}
+.oneButton:active{
+    background-color: #777;
+    color: red;
+}
+#maxDiv{
+    width: 100%;
+    height: 50px;
+      /* 开启弹性布局全部居中 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+
+input{
+    margin: 5px;
+}
+.result{
+    text-align: center;
+}
+.big{
+    width: 1000px;
+    height: 700px;
+    background-image: url('../../../博客系统/image/小马.jpg');
+    background-size: cover;
+}
