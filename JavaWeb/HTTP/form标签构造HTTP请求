@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+<body>
+    <!-- 表单标签  允许用户和服务器之间交互数据 -->
+    <!-- 要求提交的数据以键值对的结构来组织 -->
+    <!-- <form action="https://www.sogou.com" method="get"> -->
+        <form action="https://www.sogou.com" method="post">
+        <input type="text" name="studentName">
+        <!-- input type = 'submit' 构造了一个特殊的提交按钮 value属性描述了按钮中的文本 -->
+        <!-- 点击这个按钮就会触发该form 表单的"提交操作",也就是构造http请求发送给服务器 -->
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>
