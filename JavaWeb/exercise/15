@@ -1,0 +1,42 @@
+/* 先设置一篇博客大小 */
+.blog{
+    width: 100%;
+    padding: 20px;
+}
+.blog h3{
+    text-align: center;
+    color: blue;
+    margin-top: 10px;
+}
+p{
+    text-align: center;
+    padding: 10px;
+    color: red;
+}
+.write{
+    text-indent: 2em;
+}
+.blog a{
+    width: 120px;
+    height: 30px;
+    /* 让文字水平居中 */
+     margin-top: 10px; 
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;  
+      /* 去掉下划线 */
+      text-decoration: none;
+    display: block;
+    color:black;
+    text-align: center;
+    border: 2px solid black;
+    box-sizing: border-box;
+    border-radius: 5px;
+    /* 设置一个鼠标悬停的过渡效果 */
+    transition: all 0.9s;
+}
+/* 给鼠标加一个悬停变化 */
+.blog a:hover{
+    background-color: green;
+    color: aqua;
+}
