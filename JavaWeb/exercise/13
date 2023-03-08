@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客列表页</title>
+    <link rel="stylesheet" href="CSS/common.css">
+    <link rel="stylesheet" href="CSS/blog_list.css">
+</head>
+<body>
+     <!-- 导航栏 -->
+     <div class="nav">
+        <img src="../博客系统/image/头像.jpg" alt="这是一个背景" >
+        <span class="title">我的博客系统</span>
+        <!-- 将后面三个挤到最后面 -->
+        <div class="spacer">
+        </div> 
+        <a href="#">主页</a>
+        <a href="#">写博客</a>
+         <a href="#">注销</a>       
+    </div>
+    <!-- 正文部分 -->
+    <div class="contains">
+        <!-- 左侧信息 -->
+        <div class="contains-left">
+            <div class="xinxi">
+                <img src="../博客系统/image/小马.jpg" alt="这是一个头像">
+                <h2>小马</h2>
+                <a href="#">github地址</a>
+                <div class="row">
+                    <span>文章</span>
+                    <span>分类</span>
+                </div>
+                <div class="row">
+                    <span>2</span>
+                    <span>1</span>
+                </div>
+            </div>
+        </div>
+        <!-- 右侧博客 -->
+        <div class="contains-right">
+            <!-- 表示一篇博客 -->
+            <div class="blog">
+                <h3>我的第一篇博客</h3>
+                <p>2023-3-8</p>
+                <div class="write">
+                    小马计划从今天起,好好敲代码,Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem accusamus voluptas mollitia necessitatibus aliquid repellendus ad minima? Aliquid iusto consequatur impedit tenetur, ullam inventore ducimus architecto molestias, nisi nesciunt eaque?
+                </div>
+                <a href="#">查看原文&gt;&gt;</a>
+            </div>
+        </div>
+    </div>   
+</body>
+</html>
