@@ -1,0 +1,110 @@
+*{
+    /* 消除浏览器默认样式 */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* 设置html 和 body的高度 */
+html,body{
+    height: 100%;
+}
+/* 设置背景 */
+body{
+    background-image: url("../../博客系统/image/背景.jpg");
+    /* 去掉平铺 */
+    background-repeat: no-repeat;
+    /* 让图片尽可能伸展 */
+    background-size: cover;
+    /* 让图片居中 */
+    background-position: center center;
+}
+/* 设置导航栏样式 */
+.nav{
+    width: 100%;
+    height: 50px;
+    /* 开启弹性布局 */
+    display: flex;
+    /* 垂直居中 */
+    align-items: center;
+    background-color: rgba(50, 50, 50,0.3);
+    color: white;
+}
+.nav img{
+    /* 设置图片的样式 */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* 设置外边距 */
+    margin-left: 30px;
+    margin-right: 10px;
+}
+.spacer{
+    width: 70%;
+}
+a{
+    /* 去掉超链接下面的横线 */
+    text-decoration: none;
+    color: white;
+     /* 为了使a标签不那么紧凑,可以使用内边距
+    外边距也可以,但是内边距也是元素的内容 可以增大用户的点击面积 */
+    padding: 0 10px;
+}
+
+
+/* 编辑页面主体样式 */
+.contains{
+    height: calc(100% - 50px);
+    width: 1000px;
+    /* 水平居中 */
+    margin: 0 auto;
+    /* 开启弹性布局 */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* 左侧信息 */
+.contains-left{
+    width: 200px;
+    height: 100%;
+}
+/* 右侧信息 */
+.contains-right{
+    width: 795px;
+    height: 100%;;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    /* 添加一个滚动条 
+   这个属性表示 内容不溢出无滚动条  内容溢出自动添加滚动条*/
+    overflow:auto;
+}
+.xinxi{
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 10px;
+    /* 设置内边距 */
+    padding: 30px;
+}
+.xinxi img{
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+}
+.xinxi h2{
+    text-align: center;
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+/* 必须将a标签也转换成块级元素进行操作 */
+.xinxi a{
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: #555;
+}
+.row{
+    height: 30px;
+    width:100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+}
