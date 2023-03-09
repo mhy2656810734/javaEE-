@@ -1,0 +1,46 @@
+.blog-edit-container{
+    width: 1000px;
+    height: calc(100% - 50px);
+    /* 居中 */
+    margin: 0 auto;
+}
+/* 设置标题编辑区 */
+.title{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#title{
+    width: 895px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 5px;
+    padding-left: 5px;
+    /* 去掉轮廓线 */
+    outline: none;
+    /* 设置背景半透明 */
+    background-color: rgba(255,255,255,0.8);
+}
+/* 获取到焦点 */
+#title:focus{
+    background-color: rgb(255,255,255);
+}
+button{
+    height: 40px;
+    width: 100px;
+    color: black;
+    background-color: orange;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 5px;
+}
+button:active{
+    background-color: #666;
+}
+#editor{
+    /* 设置背景半透明 */
+    opacity: 80%;
+    border-radius: 10px;
+}
