@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax构造http请求</title>
+</head>
+<body>
+    <script src="../../博客系统/JS/editor.js"></script>
+    <script>
+        $.ajax({
+            type:'get',
+            url:'https://www.sogou.com?studentName=xiaoma',
+            success:function(){
+                console.log('当服务器的响应到达浏览器后,浏览器触发该回调,通知到代码中');
+            }
+        });
+        console.log('代码继续往下执行');
+    </script>
+</body>
+</html>
