@@ -1,0 +1,41 @@
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+/**
+ * @author 26568
+ * @date 2023-03-16 10:28
+ */
+@WebServlet("/method")
+public class MethodServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("doGet");
+        resp.setContentType("test/html;charset=utf-8");
+        resp.getWriter().write("你好 doGet");
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("doPost");
+        resp.setContentType("test/html;charset=utf-8");
+        resp.getWriter().write("你好 doPost");
+    }
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("doPut");
+        resp.setContentType("test/html;charset=utf-8");
+        resp.getWriter().write("你好 doPut");
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("doDelete");
+        resp.setContentType("test/html;charset=utf-8");
+        resp.getWriter().write("你好 doDelete");
+    }
+}
