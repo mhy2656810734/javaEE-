@@ -1,0 +1,49 @@
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Enumeration;
+
+/**
+ * @author 26568
+ * @date 2023-03-16 11:04
+ */
+@WebServlet("/showRequest")
+public class ShowRequestServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 使用StringBuilder 把所有的结果拼接起来,然后写回到响应中.
+
+        // 设置响应的content-type 高度浏览器.响应里的body部分的数据格式是什么样的
+        resp.setContentType("text/html");
+        StringBuilder stringBuilder = new StringBuilder();
+        // 协议名称和版本号
+        stringBuilder.append(req.getProtocol());
+        stringBuilder.append("<br>");
+        // 请求的方法 get post...
+        stringBuilder.append(req.getMethod());
+        stringBuilder.append("<br>");
+        // 请求的一部分URI
+        stringBuilder.append(req.getRequestURI());
+        stringBuilder.append("<br>");
+        //
+        stringBuilder.append(req.getContextPath());
+        stringBuilder.append("<br>");
+        // 请求的query string
+        stringBuilder.append(req.getQueryString());
+        stringBuilder.append("<br>");
+        stringBuilder.append("<br>");
+        stringBuilder.append("<br>");
+        stringBuilder.append("<br>");
+        // 获取到header 中所有的键值对.
+        Enumeration<String> headerNames = req.getHeaderNames();
+        while (headerNames.hasMoreElements()) {
+            String headerName = headerNames.nextElement();
+            stringBuilder.append(headerName+":"+req.getHeader(headerName));
+            stringBuilder.append("<br>");
+        }
+        resp.getWriter().write(stringBuilder.toString());
+    }
+}
