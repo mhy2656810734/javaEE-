@@ -1,0 +1,22 @@
+// 参数通过body(form 表单的格式传递) 服务器使用req.getParameter方法
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+/**
+ * @author 26568
+ * @date 2023-03-16 12:35
+ */
+@WebServlet("/postParameter")
+public class PostParameterServlet extends HttpServlet {
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String studentId = req.getParameter("studentId");
+        String classId = req.getParameter("classId");
+        resp.setContentType("text/html");
+        resp.getWriter().write("studentId = "+studentId+" classId = "+classId);
+    }
+}
