@@ -1,0 +1,41 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.InputStream;
+
+/**
+ * @author 26568
+ * @date 2023-03-16 14:21
+ */
+class Student{
+    public int studentId;
+    public int classId;
+}
+@WebServlet("/postParameter2")
+public class PostParameter2Servlet extends HttpServlet {
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 通过这个方法来处理body为json格式的数据
+        // 直接把req 对象里body完整的读出来
+        // 使用getInputStream
+        // 在流对象中读取多少字节?取决于Content-length
+//        int length = req.getContentLength();
+//        byte[] buffer = new byte[length];
+//        InputStream inputStream = req.getInputStream();
+//        inputStream.read(buffer);
+//
+//        // 把这个字节数据构造成字符串,打印出来
+//        String body = new String(buffer,0,length,"utf8");
+//        resp.getWriter().write(body);
+        // 使用jackson 涉及到的核心对象
+        ObjectMapper objectMapper = new ObjectMapper();
+        // readValue 就是把一个json 格式的字符串转换成一个java对象.
+        Student student = objectMapper.readValue(req.getInputStream(),Student.class);
+        System.out.println(student.studentId+","+ student.classId);
+    }
+}
