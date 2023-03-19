@@ -1,0 +1,26 @@
+// 使用req.getParameter方法
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+/**
+ * @author 26568
+ * @date 2023-03-16 12:08
+ */
+@WebServlet("/getParameter")
+public class GetParameterServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 预期浏览器会发一个形如 /getParameter?studentId=10&classId=20 请求
+        // 借助req 里的 getParameter 方法就能拿到 query String 中的键值对内容了.
+        // getParameter 得到的是String 类型的结果
+        String studentId = req.getParameter("studentId");
+        String classId = req.getParameter("classId");
+        resp.setContentType("text/html;charset=utf8");
+        resp.getWriter().write("学号 = "+studentId+"班级 = "+classId);
+    }
+}
+
