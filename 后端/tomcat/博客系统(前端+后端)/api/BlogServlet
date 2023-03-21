@@ -1,0 +1,32 @@
+package api;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import model.Blog;
+import model.BlogDao;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
+
+/**
+ * @author 26568
+ * @date 2023-03-21 12:52
+ */
+@WebServlet("/blog")
+public class BlogServlet extends HttpServlet {
+    ObjectMapper objectMapper = new ObjectMapper();
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        BlogDao blogDao = new BlogDao();
+        // 拿到数据库所有的博客
+        List<Blog> blogs = blogDao.selectAll();
+        // 需要将 blogs 转成符合要求的 json 格式的字符串
+        String respJson = objectMapper.writeValueAsString(blogs);
+        resp.setContentType("application/json;charset=utf8");
+        resp.getWriter().write(respJson);
+    }
+}
