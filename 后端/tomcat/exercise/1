@@ -1,0 +1,83 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Enumeration;
+
+/**
+ * @author 26568
+ * @date 2023-03-22 15:39
+ */
+class Student{
+    public String studentId;
+    public String classId;
+}
+// 注解的作用: 将当前这个类 和 一个HTTP请求的路径关联起来
+@WebServlet("/exercise")
+public class ExerciseServlet extends HttpServlet {
+//    @Override
+//    public void init() throws ServletException {
+//        System.out.println("初始化这个类");
+//    }
+//
+//    @Override
+//    public void destroy() {
+//        System.out.println("这个类已经被销毁了");
+//    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        System.out.println("执行get请求");
+//        resp.getWriter().write("触发get请求");
+//        System.out.println(req.getProtocol());
+//        System.out.println(req.getMethod());
+//        System.out.println(req.getRequestURI());
+//        System.out.println(req.getContextPath());
+//        System.out.println(req.getQueryString());
+//        resp.getWriter().write("hello");
+//        StringBuilder stringBuilder = new StringBuilder();
+//        resp.setContentType("text/html;charset=utf8");
+//        // 获取到 header中所有的属性
+//        Enumeration<String> headerNames = req.getHeaderNames();
+//        while (headerNames.hasMoreElements()) {
+//            String headerName = headerNames.nextElement();
+//            stringBuilder.append(headerName+":"+req.getHeader(headerName));
+//            stringBuilder.append("<br>");
+//        }
+//        resp.getWriter().write(stringBuilder.toString());
+//        String stuentId = req.getParameter("studentId");
+//        String classId = req.getParameter("classId");
+//        resp.getWriter().write("studentId"+stuentId+"   classId"+classId);
+        // 使用 jackson 涉及到的核心对象
+        ObjectMapper objectMapper = new ObjectMapper();
+        // readValue 将一个 json 格式的字符串 转成 Java对象
+        Student student = objectMapper.readValue(req.getInputStream(),Student.class);
+        resp.getWriter().write("studentId"+student.studentId+"  classId"+student.classId);
+    }
+
+//    @Override
+//    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        System.out.println("执行post请求");
+//        resp.getWriter().write("触发post请求");
+//    }
+//
+//    @Override
+//    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        resp.setContentType("charset=utf8");
+//        System.out.println("执行delete请求");
+//        resp.getWriter().write("触发delete请求");
+//    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 使用 jackson 涉及到的核心对象
+        ObjectMapper objectMapper = new ObjectMapper();
+        // readValue 将一个 json 格式的字符串 转成 Java对象
+        Student student = objectMapper.readValue(req.getInputStream(),Student.class);
+        resp.getWriter().write("studentId"+student.studentId+"  classId"+student.classId);
+    }
+}
