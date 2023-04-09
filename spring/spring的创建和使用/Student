@@ -1,0 +1,12 @@
+/**
+ * @author 26568
+ * @date 2023-04-09 10:56
+ */
+public class Student {
+    public  void sayHi() {
+        System.out.println("你好 student");
+    }
+    public Student() {
+        System.out.println("初始化 student");
+    }
+}
