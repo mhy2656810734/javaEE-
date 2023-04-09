@@ -1,0 +1,19 @@
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+/**
+ * @author 26568
+ * @date 2023-04-09 10:30
+ */
+public class App {
+    public static void main(String[] args) {
+        // 1.得到spring
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
+        // 2.从spring容器中获取到Bean 对象
+        //Student student = (Student) context.getBean("student");// 根据名称获取
+        //Student student = context.getBean(Student.class);// 根据类型获得
+        Student student = context.getBean("student",Student.class);// 根据名称+类型获得
+        // 3.使用bean对象
+        student.sayHi();
+    }
+}
