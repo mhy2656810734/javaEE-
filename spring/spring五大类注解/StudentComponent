@@ -1,0 +1,14 @@
+package com.java.demo;
+
+import org.springframework.stereotype.Component;
+
+/**
+ * @author 26568
+ * @date 2023-04-11 21:16
+ */
+@Component
+public class StudentComponent {
+    public void sayHi() {
+        System.out.println("do StudentComponet sayHi()");
+    }
+}
