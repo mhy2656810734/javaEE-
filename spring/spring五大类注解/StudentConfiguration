@@ -1,0 +1,14 @@
+package com.java.demo;
+
+import org.springframework.context.annotation.Configuration;
+
+/**
+ * @author 26568
+ * @date 2023-04-11 21:18
+ */
+@Configuration
+public class StudentConfiguration {
+    public void sayHi() {
+        System.out.println("do StudentConfiguration sayHi()");
+    }
+}
