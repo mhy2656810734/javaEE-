@@ -1,0 +1,14 @@
+package com.java.demo;
+
+import org.springframework.stereotype.Repository;
+
+/**
+ * @author 26568
+ * @date 2023-04-11 21:13
+ */
+@Repository
+public class StudentRepository {
+    public void sayHi() {
+        System.out.println("do StudentRepository sayHi()");
+    }
+}
