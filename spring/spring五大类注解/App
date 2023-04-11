@@ -1,0 +1,30 @@
+import com.java.demo.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+/**
+ * @author 26568
+ * @date 2023-04-11 21:05
+ */
+public class App {
+    public static void main(String[] args) {
+        // 1.得到spring对象
+        ApplicationContext context =
+                new ClassPathXmlApplicationContext("spring-config.xml");
+        // 2. 从spring容器中获取Bean对象
+        StudentController studentController = context.getBean("studentController",StudentController.class);
+        studentController.sayHi();
+//        StudentService studentService = context.getBean("studentService",StudentService.class);
+//        studentService.sayHi();
+//        StudentRepository studentRepository = context.getBean("studentRepository",StudentRepository.class);
+//        studentRepository.sayHi();
+//        StudentComponent studentComponent = context.getBean("studentComponent",StudentComponent.class);
+//        studentComponent.sayHi();
+//        StudentConfiguration studentConfiguration = context.getBean("studentConfiguration",StudentConfiguration.class);
+//        studentConfiguration.sayHi();
+//        SController sController = context.getBean("SController",SController.class);
+//        sController.sayHi();
+        UserController userController = context.getBean("userController",UserController.class);
+        userController.sayHi();
+    }
+}
