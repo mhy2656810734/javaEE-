@@ -1,0 +1,37 @@
+package com.java.demo.model;
+
+import com.java.demo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import javax.annotation.Resource;
+
+/**
+ * @author 26568
+ * @date 2023-04-11 21:24
+ */
+@Controller
+public class UserController {
+//    // 1.属性注入
+//    @Autowired // 注入对象(更加简单的从 spring 容器中读取对象
+//   // private final UserService userService;
+//    private UserService userService;
+    // 2.Setter 注入
+//    private UserService userService;
+//    @Autowired
+//    @Resource
+//    public void setUserService(UserService userService) {
+//        this.userService = userService;
+//    }
+    // 3.构造方法注入
+    private UserService userService;
+    @Autowired
+//    @Resource
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+        public void sayHi() {
+        System.out.println("do UserController sayHi()");
+        userService.sayHi();
+    }
+}
