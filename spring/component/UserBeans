@@ -1,0 +1,24 @@
+package com.java.demo.component;
+
+import com.java.demo.model.User;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+/**
+ * @author 26568
+ * @date 2023-04-16 15:02
+ */
+@Component
+public class UserBeans {
+    @Bean
+   // @Scope("prototype")
+    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+    public User user() {
+        User user = new User();
+        user.setId(20);
+        user.setName("张三");
+        return user;
+    }
+}
