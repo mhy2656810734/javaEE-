@@ -1,0 +1,35 @@
+package com.java.demo.component;
+
+import org.springframework.beans.factory.BeanNameAware;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
+/**
+ * @author 26568
+ * @date 2023-04-16 15:42
+ */
+public class BeanComponent implements BeanNameAware {
+
+    @Override
+    public void setBeanName(String s) {
+        System.out.println("执行了通知BeanName ->:"+s);
+    }
+    /**
+     * XML 方式的初始化 (方法名必须匹配)
+     */
+    public void myInit() {
+        System.out.println("XML 方式的初始化");
+    }
+    @PostConstruct
+    public void init() {
+        System.out.println("注解的方式初始化");
+    }
+    public void sayHi() {
+        System.out.println("执行sayHi()方法");
+    }
+    @PreDestroy
+    public void des() {
+        System.out.println("销毁的时候执行的方法");
+    }
+}
