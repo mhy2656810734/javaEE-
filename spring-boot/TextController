@@ -1,0 +1,48 @@
+package com.example.demo.controller;
+
+import com.example.demo.model.StudentComponent;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.annotation.PostConstruct;
+
+/**
+ * @author 26568
+ * @date 2023-04-18 22:36
+ */
+@Controller
+@ResponseBody // 加在类上,表示当前类中的所有方法返回的都是非静态页面的数据
+public class TextController {
+    //@Value("${javaclass}")
+    @Value("${server.port}")
+    private String javaclass;
+    @Value("${mystr1}")
+    private String mystr1;
+    @Value("${mystr2}")
+    private String mystr2;
+    @Value("${mystr3}")
+    private String mystr3;
+    @Value("${student.name}")
+    private String name;
+
+    @Autowired
+    private StudentComponent studentComponent;
+
+    @PostConstruct
+    private void doPostConstruct() {
+        System.out.println("--------------------------");
+        System.out.println(mystr1);
+        System.out.println(mystr2);
+        System.out.println(mystr3);
+        System.out.println("--------------------------");
+        System.out.println(studentComponent);
+    }
+    @RequestMapping("/sayhi")  // == @WebServlet("/url")
+    public String sayHi() {
+        return "hello world->"+javaclass;
+    }
+}
