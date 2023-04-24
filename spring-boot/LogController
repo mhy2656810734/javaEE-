@@ -1,0 +1,20 @@
+package com.example.demo.controller;
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * @author 26568
+ * @date 2023-04-24 10:52
+ */
+@RestController  //  == ResponseBody + Controller
+@Slf4j           // 给当前类添加一个叫做 log 的日志对象(== SLF4J 里面提供的logger)
+public class LogController {
+    @RequestMapping("/log/text")
+    public String text() {
+        log.info("我是 log 的info");
+        log.warn("我是 log 的warn");
+        return "hello world";
+    }
+}
