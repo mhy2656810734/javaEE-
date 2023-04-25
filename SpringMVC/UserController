@@ -1,0 +1,88 @@
+package com.example.demo.controller;
+
+import com.example.demo.model.UserInfo;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+/**
+ * @author 26568
+ * @date 2023-04-25 13:51
+ */
+//@RestController
+@Controller // 让spring 启动时 加载
+@ResponseBody // 返回非页面数据
+//@RequestMapping("/user")
+public class UserController {
+    // 路由器注册规则
+    @RequestMapping("/sayHi")
+    public String sayHi() {
+        return "hello Spring MVC";
+    }
+    // 1.1只能通过get请求访问
+    @RequestMapping(value = "/sayGet",method = RequestMethod.GET)
+    public String say() {
+//        return "只能通过get请求得到返回值";
+        return "hello get";
+    }
+    // 2.1只能通过 Post请求访问
+    @RequestMapping(value = "/sayPost",method = RequestMethod.POST)
+    public Object say1() {
+        return "只能通过 post 请求得到返回值";
+    }
+    // 1.2 只能通过get请求访问的另一种方式
+    @GetMapping("/second/sayGet")
+    public String  say2() {
+        return "另一种只能通过get请求得到返回值";
+    }
+    // 2.2 只能通过post请求访问的另一种方式
+    @PostMapping("/second/sayPost")
+    public Object say3() {
+        return "另一种只能通过post请求得到的返回值";
+    }
+    // 传递单个参数 注意形参的名字要对应
+    @RequestMapping("/user1")
+    public Object say4(String name) {// 没有传 query string name默认是null
+        return "hello  "+name;
+    }
+    @RequestMapping("/user2")
+    public Object say4(Integer id) {// 没有传 query string id默认是null
+        if (id==null) return "参数有误";
+        return "hello  "+id;
+    }
+    @RequestMapping("/user3")
+    public Object say4(int id) { // 没有传 query string 会报错
+        return "hello  "+id;
+    }
+    // Spring MVC 中内置了HttpServletRequest 和 HttpServletResponse
+    @RequestMapping("/request")
+    public Object say5(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        // 通过这个方法获得queryString 中的属性
+        String name = request.getParameter("name");
+       // response.sendRedirect("https://blog.csdn.net/qq_54469537?type=blog");
+        return "hello :"+name;
+    }
+    // 传递多个参数  在queryString 中传递顺序不做要求
+    @RequestMapping("/user")
+    public Object say6(String name,String password) {
+        return "hello name:"+name+"password:"+password;
+    }
+    // 获取对象
+    @RequestMapping("/register")
+    public Object reg(UserInfo userInfo)  {
+        System.out.println(userInfo);
+        return userInfo;
+    }
+    @RequestMapping("/h1")
+    public Object getH1() {
+        return "<h1>我是h1</h1>";
+    }
+    // 对参数进行重命名
+    @RequestMapping("/user4")       // queryString 必须输入username 和 pas 否则出错  默认required表示必须传入,设置成false表示不传入
+    public Object say7(@RequestParam(value = "username",required = false) String name,@RequestParam("pas") String password) {
+        return "hello name:"+name+"password:"+password;
+    }
+}
