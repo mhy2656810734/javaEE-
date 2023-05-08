@@ -1,0 +1,20 @@
+package com.example.demo.entity;
+
+import lombok.Data;
+
+import java.time.LocalDateTime;
+
+/**
+ * @author 26568
+ * @date 2023-05-08 9:45
+ */
+@Data
+public class UserEntity {
+    private Integer id;
+    private String username;
+    private String password;
+    private String photo;
+    private LocalDateTime createtime;
+    private LocalDateTime updatetime;
+    private Integer state;// 表示状态，是1就是正常用户
+}
