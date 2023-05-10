@@ -1,0 +1,85 @@
+package com.example.demo.mapper;
+
+import com.example.demo.entity.UserEntity;
+import org.apache.catalina.User;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+@SpringBootTest  // 必须加这个注解  表示当前单元测试的类是运行在Spring Boot 环境中的
+class UserMapperTest {
+    @Autowired
+    private UserMapper userMapper;
+    @Test
+    void getById() {
+        UserEntity user = userMapper.getById(1);
+        System.out.println(user);
+    }
+
+    @Test
+    void getAll() {
+        List<UserEntity> list = userMapper.getAll();
+        System.out.println(list.size());
+
+    }
+
+    @Test
+    void getByUserName() {
+        UserEntity user = userMapper.getByUserName("admin");
+        System.out.println(user);
+    }
+
+    @Test
+    void login() {
+        String username = "admin";
+//        String password = "admin";
+        String password = "' or 1='1";
+        UserEntity input = new UserEntity();
+        input.setUsername(username);
+        input.setPassword(password);
+        UserEntity user = userMapper.login(input);
+        System.out.println(user);
+    }
+
+    @Test
+    void getAllByIdOrd() {
+        List<UserEntity> list = userMapper.getAllByIdOrd("desc");
+        System.out.println(list.size());
+    }
+    @Transactional // 事务  不会污染数据库
+    @Test
+    void updatePassword() {
+        int result = userMapper.updatePassword("admin","123456","123");
+        System.out.println(result);
+    }
+
+    @Transactional
+    @Test
+    void delById() {
+        int result = userMapper.delById(1);
+        System.out.println(result);
+    }
+
+    @Test
+    void addUser() {
+        UserEntity user = new UserEntity();
+        user.setUsername("xiaoma");
+        user.setPassword("11111");
+        int result = userMapper.addUser(user);
+        System.out.println(result);
+    }
+
+    @Test
+    void addUserGetId() {
+        UserEntity user = new UserEntity();
+        user.setUsername("buren");
+        user.setPassword("22222");
+        int result = userMapper.addUserGetId(user);
+        System.out.println(result);
+        System.out.println(user.getId());
+    }
+}
