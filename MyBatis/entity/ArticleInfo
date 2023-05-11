@@ -1,0 +1,21 @@
+package com.example.demo.entity;
+
+import lombok.Data;
+
+import java.time.LocalDateTime;
+
+/**
+ * @author 26568
+ * @date 2023-05-11 14:07
+ */
+@Data
+public class ArticleInfo {
+    private Integer id;
+    private String title;
+    private String content;
+    private LocalDateTime createtime;
+    private LocalDateTime updatetime;
+    private Integer uid;
+    private Integer rcount;
+    private Integer state;
+}
