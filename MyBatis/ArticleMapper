@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.ArticleMapper">
+    <select id="getDetail" resultType="com.example.demo.entity.vo.ArticleInfoVO">
+<!--        select * from userinfo,articleinfo where articleinfo.uid = userinfo.id and userinfo.id = #{id}-->
+        select * from userinfo,articleinfo where articleinfo.uid = userinfo.id and userinfo.id = #{id}
+    </select>
+    <select id="getListByUid" resultType="com.example.demo.entity.vo.ArticleInfoVO">
+        select articleinfo.*,userinfo.username from userinfo join articleinfo on userinfo.id = articleinfo.uid where articleinfo.uid = #{uid}
+    </select>
+<!--    MyBatis 中多个都是非必传参数的三种解决方案-->
+<!--    1-->
+<!--    <select id="getListByIdOrTitle" resultType="com.example.demo.entity.vo.ArticleInfoVO">-->
+<!--        select * from articleinfo-->
+<!--        where 1=1-->
+<!--        <trim prefixOverrides="and">-->
+<!--            <if test="id !=null and id > 0">-->
+<!--                and id=#{id}-->
+<!--            </if>-->
+<!--            <if test="title != null and title !=''">-->
+<!--               and title like concat('%',#{title},'%')-->
+<!--            </if>-->
+<!--        </trim>-->
+<!--    </select>-->
+<!--    2-->
+<!--    <select id="getListByIdOrTitle" resultType="com.example.demo.entity.vo.ArticleInfoVO">-->
+<!--        select * from articleinfo-->
+<!--        <trim prefix="where" prefixOverrides="and">-->
+<!--            <if test="id !=null and id > 0">-->
+<!--                id=#{id} and-->
+<!--            </if>-->
+<!--            <if test="title != null and title !=''">-->
+<!--                title like concat('%',#{title},'%')-->
+<!--            </if>-->
+<!--        </trim>-->
+<!--    </select>-->
+<!--    3-->
+     <select id="getListByIdOrTitle" resultType="com.example.demo.entity.vo.ArticleInfoVO">
+        select * from articleinfo
+<!--         where 标签会自动去除最前面的 and 关键字-->
+        <where>
+            <if test="id != null and id > 0">
+                id =#{id}
+            </if>
+            <if test="title != null and title !=''">
+                and title like concat('%',#{title},'%')
+            </if>
+        </where>
+    </select>
+</mapper>
