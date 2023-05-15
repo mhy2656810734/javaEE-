@@ -1,0 +1,23 @@
+package com.example.demo.controller;
+
+import com.example.demo.common.UserAOP;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * @author 26568
+ * @date 2023-05-15 9:50
+ */
+@RestController
+@RequestMapping("/art")
+public class ArticleController {
+    @Autowired
+    private UserAOP userAOP;
+
+    @RequestMapping("/text")
+    public String sayHi() {
+        System.out.println("执行了ArticleUserController 的sayHi 方法");
+        return "article:hi,spring boot aop";
+    }
+}
