@@ -1,0 +1,39 @@
+package com.example.demo.controller;
+
+import com.example.demo.controller.entity.UserInfo;
+import com.example.demo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * @author 26568
+ * @date 2023-05-19 10:01
+ */
+
+/**
+ *  演示事务传播机制
+ */
+@RestController
+@RequestMapping("/user3")
+public class UserController3 {
+    @Autowired
+    private UserService userService;
+    @RequestMapping("/add")
+    @Transactional(propagation = Propagation.NESTED)
+    public int add(String username,String password) {
+        if (username == null || password == null ||
+        "".equals(username) || "".equals(password)) {
+            return 0;
+        }
+        UserInfo userInfo = new UserInfo();
+        userInfo.setUsername(username);
+        userInfo.setPassword(password);
+        int result = userService.add(userInfo);
+//        TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+        return result;
+    }
+}
