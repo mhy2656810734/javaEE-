@@ -1,0 +1,27 @@
+package com.example.demo.service;
+
+import com.example.demo.controller.entity.Log;
+import com.example.demo.mapper.LogMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
+
+/**
+ * @author 26568
+ * @date 2023-05-19 10:14
+ */
+@Service
+public class LogService {
+    @Autowired
+    private LogMapper logMapper;
+    @Transactional(propagation = Propagation.NESTED)
+    public int add(Log log) {
+        int result = logMapper.add(log);
+        System.out.println("添加日志结果："+result);
+        // 出现错误 进行回滚
+        TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+        return result;
+   }
+}
