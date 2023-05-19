@@ -1,0 +1,16 @@
+package com.example.demo.controller.entity;
+
+import lombok.Data;
+
+import java.time.LocalDateTime;
+
+/**
+ * @author 26568
+ * @date 2023-05-19 10:07
+ */
+@Data
+public class Log {
+    private int id;
+    private LocalDateTime timestamp;
+    private String message;
+}
