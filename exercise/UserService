@@ -1,0 +1,21 @@
+@Service
+public class UserService {
+    @Autowired
+    private UserMapper userMapper;
+    @Autowired
+    private LogService logService;
+    public int del(Integer id) {
+        return userMapper.del(id);
+    }
+    @Transactional(propagation = Propagation.NESTED)
+    public int add(Userinfo userinfo) {
+        // 给用户表添加信息
+        int addResult = userMapper.add(userinfo);
+        System.out.println("添加用户结果："+addResult);
+        // 添加日志信息
+        Log log = new Log();
+        log.setMessage("添加用户信息");
+        logService.add(log);
+        return addResult;
+    }
+}
