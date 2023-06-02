@@ -1,0 +1,13 @@
+package com.example.demo.vo;
+
+import com.example.demo.entity.ArticleInfo;
+import lombok.Data;
+
+/**
+ * @author 26568
+ * @date 2023-05-20 9:04
+ */
+@Data
+public class ArticleInfoVO extends ArticleInfo {
+    private String username;
+}
