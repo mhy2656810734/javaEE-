@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客正文</title>
+    <link rel="stylesheet" href="css/conmmon.css">
+    <link rel="stylesheet" href="css/blog_content.css">
+    <link rel="stylesheet" href="editor.md/css/editormd.preview.min.css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="editor.md/editormd.js"></script>
+    <script src="editor.md/lib/marked.min.js"></script>
+    <script src="editor.md/lib/prettify.min.js"></script>
+    <script src="js/urltools.js"></script>
+    <script src="js/logout.js"></script>
+
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <div class="nav">
+        <img src="img/logo2.jpg" alt="">
+        <span class="title">我的博客系统</span>
+        <!-- 用来占据中间位置 -->
+        <span class="spacer"></span>
+        <a href="blog_list.html">主页</a>
+        <span id="userElement" >
+            <a href="blog_add.html">写博客</a>
+            <a href="javascript:logout()">注销</a>
+        </span>
+        <a  id="loginElement" href="login.html">登陆</a>
+    </div>
+    <!-- 版心 -->
+    <div class="container">
+        <!-- 左侧个人信息 -->
+        <div class="container-left">
+            <div class="card">
+                <img src="img/avatar.png" class="avtar" alt="">
+                <h3 id="author2">小可爱</h3>
+                <a href="http:www.github.com">github 地址</a>
+                <div class="counter">
+                    <span>文章</span>
+                    <span>分类</span>
+                </div>
+                <div class="counter">
+                    <span>2</span>
+                    <span>1</span>
+                </div>
+            </div>
+        </div>
+        <!-- 右侧内容详情 -->
+        <div class="container-right">
+            <div class="blog-content">
+                <!-- 博客标题 -->
+                <h3 id="title"></h3>
+                <!-- 博客时间 -->
+                <div class="date">
+                    作者:
+                    <span id="author"></span> &nbsp;&nbsp;&nbsp;
+                    阅读量:
+                    <span id="rcount"></span> &nbsp;&nbsp;&nbsp;
+                    发布时间:
+                    <span id="createtime"></span> &nbsp;&nbsp;&nbsp;
+                 </div>
+                <!-- 博客正文 -->
+                <div id="editorDiv">
+
+                </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+            var editormd;
+            let id = 0;
+            function initEdit(md){
+                editormd = editormd.markdownToHTML("editorDiv", {
+                markdown : md, // Also, you can dynamic set Markdown text
+                // htmlDecode : true,  // Enable / disable HTML tag encode.
+                // htmlDecode : "style,script,iframe",  // Note: If enabled, you should filter some dangerous HTML tags for website security.
+                });
+            } 
+            function getDetail() {
+                id = getParamByKey("id");
+                if (id == null || id == undefined || id <= 0) {
+                    alert("参数有误");
+                    return false;
+                }
+                jQuery.ajax({
+                    url:"/art/getdetail",
+                    type:"Post",
+                    data:{"id":id},
+                    success : function(res) {
+                        if (res.code == 200 && res.data != null && res.data.id > 0) {
+                            // 查询成功
+                            // 根据查询结果得到的 ArticleInfoVO 进行填充
+                            // 展示标题
+                            jQuery("#title").html(res.data.title);
+                            // 展示阅读量 作者 发布时间
+                            jQuery("#author").html(res.data.username);
+                            jQuery("#author2").html(res.data.username);
+                            jQuery("#rcount").html(res.data.rcount);
+                            jQuery("#createtime").html(res.data.createtime);
+                            // 对正文进行初始化
+                            initEdit(res.data.content);
+
+                        } else {
+                            alert("操作失败:"+res.msg);
+                        }
+                    }
+                });
+            }
+            getDetail();
+            // 增加阅读量
+            function addRcount() {
+                // 直接给后端发消息
+                jQuery.ajax({
+                    url:"/art/addRcount",
+                    type:"Post",
+                    data:{"id":id},
+                    success:function(res) {
+                    }
+                });
+            }
+            addRcount();
+            // 判断用户是否已经登录
+            function isLogin() {
+                jQuery.ajax({
+                    url:"/user/islogin",
+                    type:"Post",
+                    data:{},
+                    success:function(res) {
+                        if (res.code == 200 && res.data == 1) {
+                            // 用户已经登录 显示注销和写博客按钮 
+                            jQuery("#userElement").show();
+                            // 隐藏登录按钮
+                            jQuery("#loginElement").hide();
+                        } else {
+                            // 没有登录
+                            jQuery("#userElement").hide();
+                            // 隐藏登录按钮
+                            jQuery("#loginElement").show();
+                        }
+                    }
+                });
+            }
+            isLogin();
+    </script> 
+</body>
+
+</html>
