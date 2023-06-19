@@ -1,0 +1,19 @@
+package com.example.demo.entity;
+
+import lombok.Data;
+
+import java.io.Serializable;
+
+/**
+ * @author 26568
+ * @date 2023-06-19 22:19
+ */
+@Data
+public class Userinfo implements Serializable {
+    // 添加一个版本号
+    private static String serialVersionUID = "1";
+    private int id;
+    private String username;
+    // transient 是不进行反序列化
+    private transient String password;
+}
