@@ -1,0 +1,37 @@
+package com.example.demo;
+
+import com.example.demo.entity.Userinfo;
+import org.springframework.http.HttpRequest;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+/**
+ * @author 26568
+ * @date 2023-06-19 21:48
+ */
+@RestController
+public class UserController {
+    private static final String SESSION_KEY_USERINFO="SESSION_KEY_USERINFO";
+    // 存储session
+    @RequestMapping("/save")
+    public String  save(HttpSession session) {
+        Userinfo userinfo = new Userinfo();
+        userinfo.setId(18);
+        userinfo.setUsername("zhangsan");
+        userinfo.setPassword("123456");
+        session.setAttribute(SESSION_KEY_USERINFO,userinfo);
+        return "OK";
+    }
+    // 得到Session
+    @RequestMapping("/get")
+    public Object get(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if (session != null && session.getAttribute(SESSION_KEY_USERINFO) != null) {
+            return session.getAttribute(SESSION_KEY_USERINFO);
+        }
+        return "null";
+    }
+}
