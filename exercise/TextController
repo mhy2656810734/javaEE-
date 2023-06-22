@@ -1,0 +1,45 @@
+package com.example.demo.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * @author 26568
+ * @date 2023-05-06 22:54
+ */
+@Controller
+@RequestMapping("/test")
+public class TextController {
+    @RequestMapping("/index")
+    public Object getIndex() {
+        // 这里加 / 表示根路径去找下面这个 index.html文件
+        return "/index.html";
+    }
+    /**
+     * 请求转发
+     */
+//    @RequestMapping("/forward")
+//    public Object getFw() {
+//        return "forward:/index.html";
+//    }
+//    /**
+//     * 请求重定向
+//     */
+//    @RequestMapping("/redirect")
+//    public Object getRd() {
+//        return "redirect:/index.html";
+//    }
+//    @RequestMapping("/forward")
+//    public Object getFw() {
+//        return "forward:/index.html";
+//    }
+    /**
+     * 请求重定向
+     */
+    @RequestMapping("/redirect")
+    public Object getRD() {
+        return "redirect:/index.html";
+    }
+}
+
