@@ -1,0 +1,75 @@
+package com.example.demo.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.UUID;
+
+/**
+ * @author 26568
+ * @date 2023-05-06 22:54
+ */
+@Controller
+@ResponseBody
+@RequestMapping("/test")
+public class TestController {
+    @RequestMapping("/input")
+    public String get(String name) {
+        System.out.println("参数 name:"+name);
+        return "ok";
+    }
+    @RequestMapping("/index")
+    public Object getIndex() {
+        // 这里加 / 表示根路径去找下面这个 index.html文件
+        return "/index.html";
+    }
+    /**
+     * 请求转发
+     */
+//    @RequestMapping("/forward")
+//    public Object getFw() {
+//        return "forward:/index.html";
+//    }
+//    /**
+//     * 请求重定向
+//     */
+//    @RequestMapping("/redirect")
+//    public Object getRd() {
+//        return "redirect:/index.html";
+//    }
+//    @RequestMapping("/forward")
+//    public Object getFw() {
+//        return "forward:/index.html";
+//    }
+    /**
+     * 请求重定向
+     */
+    @RequestMapping("/redirect")
+    public Object getRD() {
+        return "redirect:/index.html";
+    }
+    @RequestMapping("/myupload")
+    public Object upload(@RequestPart("haiyang")MultipartFile file) {
+        String fileName = UUID.randomUUID() + // 文件名
+                file.getOriginalFilename().substring(  // 文件后缀
+                        file.getOriginalFilename().lastIndexOf(".")
+                );
+        // 要上传到的路径
+        File save = new File("D:\\Data\\"+fileName);
+        try {
+            file.transferTo(save);
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    @RequestMapping("/cook")
+    public Object getCookie(@CookieValue(value = "java",required = false)String java) {
+        return java;
+    }
+}
+
