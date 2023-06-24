@@ -1,0 +1,14 @@
+package com.example.demo.mapper;
+
+import com.example.demo.entity.UserInfo;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+
+@Mapper
+public interface UserMapper {
+    List<UserInfo> getAll();
+    // 根据id查询用户
+    UserInfo getById(@Param("id")Integer id);
+}
