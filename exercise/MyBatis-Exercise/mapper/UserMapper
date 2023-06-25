@@ -11,4 +11,6 @@ public interface UserMapper {
     List<UserInfo> getAll();
     // 根据id查询用户
     UserInfo getById(@Param("id")Integer id);
+    // 根据名称查询对象
+    UserInfo getUserByUserName(@Param("username")String username);
 }
