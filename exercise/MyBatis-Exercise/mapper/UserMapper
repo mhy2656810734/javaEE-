@@ -13,4 +13,20 @@ public interface UserMapper {
     UserInfo getById(@Param("id")Integer id);
     // 根据名称查询对象
     UserInfo getUserByUserName(@Param("username")String username);
+    // 登录
+    UserInfo login(UserInfo userInfo);
+    // 排序
+    List<UserInfo> getAll2(@Param("ord")String ord);
+    // 修改密码
+    int update(@Param("id")Integer id,
+               @Param("password")String password,
+               @Param("newPassword")String newPassword);
+    // 删除用户
+    int delete(@Param("id")Integer id);
+    // 添加用户
+    int addUser(UserInfo userInfo);
+    // 添加用户返回id
+    int addUser1(UserInfo userInfo);
+    // 使用用户名进行模糊查询
+    List<UserInfo> getListByName(@Param("username")String username);
 }
