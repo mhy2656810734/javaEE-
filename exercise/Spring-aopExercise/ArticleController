@@ -1,0 +1,18 @@
+package com.example.demo.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * @author 26568
+ * @date 2023-06-27 14:42
+ */
+@RestController
+@RequestMapping("/art")
+public class ArticleController {
+    @RequestMapping("/test1")
+    public String sayHi() {
+        System.out.println("执行了 ArticleController 的sayHi 方法");
+        return "article: hello spring boot aop";
+    }
+}
