@@ -1,0 +1,29 @@
+package com.example.demo.controller;
+
+import com.example.demo.po.Setmeal;
+import com.example.demo.service.SetmealService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+/**
+ * @author 26568
+ * @date 2023-07-04 9:57
+ */
+@RestController
+@RequestMapping("/setmeal")
+public class SetmealController {
+    @Autowired
+    private SetmealService setmealService;
+    @RequestMapping("/listSetmealByType")
+    public List<Setmeal> listSetmealByType(@RequestBody Setmeal setmeal) {
+        return setmealService.listSetmealByType(setmeal.getType());
+    }
+    @RequestMapping("/getSetmealById")
+    public Setmeal getSetmealById(@RequestBody Setmeal setmeal) {
+        return setmealService.getSetmealById(setmeal.getSmId());
+    }
+}
