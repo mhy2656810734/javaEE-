@@ -1,0 +1,19 @@
+package com.example.demo.po;
+
+import lombok.Data;
+
+import java.util.List;
+
+/**
+ * @author 26568
+ * @date 2023-07-04 9:22
+ */
+@Data
+public class Setmeal {
+    private Integer smId;
+    private String name;
+    private Integer type;
+    private Integer price;
+    // 一对多
+    private List<SetmealDetailed> sdList;
+}
