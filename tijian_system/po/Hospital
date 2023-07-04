@@ -1,0 +1,20 @@
+package com.example.demo.po;
+
+import lombok.Data;
+
+/**
+ * @author 26568
+ * @date 2023-07-03 20:41
+ */
+@Data
+public class Hospital {
+    private Integer hpId;
+    private String name;
+    private String picture;
+    private String telephone;
+    private String address;
+    private String businessHours;
+    private String deadline;
+    private String rule;
+    private Integer state;
+}
