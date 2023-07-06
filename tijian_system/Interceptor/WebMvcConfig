@@ -1,0 +1,22 @@
+package com.example.demo.interceptor;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+/**
+ * 服务器端跨域  （拦截器）
+ * @author 26568
+ * @date 2023-07-03 9:05
+ */
+@Configuration
+public class WebMvcConfig implements WebMvcConfigurer {
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("*")
+                .allowedMethods("*")
+                .allowedHeaders("*")
+                .maxAge(36000);
+    }
+}
