@@ -1,0 +1,20 @@
+package com.example.demo.dto;
+
+import lombok.Data;
+
+/**
+ * @author 26568
+ * @date 2023-07-04 11:50
+ */
+// 请求预约日历的相关数据
+@Data
+public class CalendarResponseDto {
+    private String ymd;
+    private Integer total;
+    private Integer existing;
+    private Integer remainder;
+    public  CalendarResponseDto(){}
+    public  CalendarResponseDto(String ymd){
+        this.ymd = ymd;
+    }
+}
