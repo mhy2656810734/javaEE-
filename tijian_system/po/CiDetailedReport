@@ -1,0 +1,23 @@
+package com.example.demo.po;
+
+import lombok.Data;
+
+/**
+ * @author 26568
+ * @date 2023-07-05 7:58
+ */
+@Data
+public class CiDetailedReport {
+    private Integer cirId;
+    private String name;
+    private String unit;
+    private double minrange;
+    private double maxrange;
+    private String normalValue;
+    private String normalValueString;
+    private Integer type;
+    private String value;
+    private Integer isError;
+    private Integer ciId;
+    private Integer orderId;
+}
