@@ -1,0 +1,24 @@
+package com.example.demo.service;
+
+import com.example.demo.mapper.HospitalMapper;
+import com.example.demo.po.Hospital;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+/**
+ * @author 26568
+ * @date 2023-07-03 20:56
+ */
+@Service
+public class HospitalService {
+    @Autowired
+    private HospitalMapper hospitalMapper;
+    public List<Hospital> listHospital(Integer state) {
+        return hospitalMapper.listHospital(state);
+    }
+    public Hospital getHospitalById(Integer hpId){
+        return hospitalMapper.getHospitalById(hpId);
+    }
+}
