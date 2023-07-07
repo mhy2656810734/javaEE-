@@ -1,0 +1,33 @@
+package com.example.demo.service;
+
+import com.example.demo.mapper.CiDetailedReportMapper;
+import com.example.demo.mapper.CiReportMapper;
+import com.example.demo.po.CiDetailedReport;
+import com.example.demo.po.CiReport;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+/**
+ * @author 26568
+ * @date 2023-07-05 8:10
+ */
+@Service
+public class CiReportService {
+    @Autowired
+    private CiReportMapper ciReportMapper;
+    @Autowired
+    private CiDetailedReportMapper ciDetailedReportMapper;
+    public List<CiReport> listCiReport(Integer orderId) {
+        List<CiReport> crList = ciReportMapper.listCiReport(orderId);
+        for(CiReport cr: crList) {
+            CiDetailedReport param = new CiDetailedReport();
+            param.setOrderId(orderId);
+            param.setCiId(cr.getCiId());
+          List<CiDetailedReport> list =  ciDetailedReportMapper.listCiDetailedReportByOrderIdByCiId(param);
+          cr.setCidrList(list);
+        }
+        return crList;
+    }
+}
