@@ -1,0 +1,15 @@
+package com.example.demo.po;
+
+import lombok.Data;
+
+/**
+ * @author 26568
+ * @date 2023-07-04 22:52
+ */
+@Data
+public class OverallResult {
+    private Integer orId;
+    private String title;
+    private String content;
+    private Integer orderId;
+}
