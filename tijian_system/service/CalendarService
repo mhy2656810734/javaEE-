@@ -1,0 +1,128 @@
+package com.example.demo.service;
+
+import com.example.demo.dto.CalendarRequestDto;
+import com.example.demo.dto.CalendarResponseDto;
+import com.example.demo.dto.OrdersMapperDto;
+import com.example.demo.mapper.HospitalMapper;
+import com.example.demo.mapper.OrdersMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
+/**
+ * @author 26568
+ * @date 2023-07-04 11:55
+ */
+@Service
+public class CalendarService {
+    @Autowired
+    private HospitalMapper hospitalMapper;
+    @Autowired
+    private OrdersMapper ordersMapper;
+    public List<CalendarResponseDto> listAppointmentCalendar(CalendarRequestDto dto) {
+        List<CalendarResponseDto> calendarList30 = getCalendarList30(dto.getHpId());
+        List<CalendarResponseDto> currentCalendarList = getCurrentCalendarList(dto.getYear(),dto.getMonth());
+        for(CalendarResponseDto current: currentCalendarList) {
+            for(CalendarResponseDto calendar:calendarList30) {
+                if (current.getYmd() != null) {
+                    if (current.getYmd().equals(calendar.getYmd())) {
+                        current.setTotal(calendar.getTotal());
+                        current.setExisting(calendar.getExisting());
+                        current.setRemainder(calendar.getRemainder());
+                    }
+                }
+            }
+        }
+        return currentCalendarList;
+    }
+    private List<CalendarResponseDto> getCalendarList30(Integer hpId) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+        List<OrdersMapperDto> parameList = new ArrayList<>();
+        for (int i = 0; i < 30; i++) {
+            OrdersMapperDto dto = new OrdersMapperDto();
+            calendar.add(Calendar.DATE,1);
+            dto.setDate(sdf.format(calendar.getTime()));
+            dto.setHpId(hpId);
+            parameList.add(dto);
+        }
+        List<CalendarResponseDto> calendarList30 = ordersMapper.listOrdersAppointmentNumber(parameList);
+        String[] stringArr  =hospitalMapper.getHospitalById(hpId).getRule().split(",");
+        for (CalendarResponseDto cd:calendarList30) {
+            try {
+                calendar.setTime(sdf.parse(cd.getYmd()));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            int total = Integer.parseInt(stringArr[calendar.get(Calendar.DAY_OF_WEEK)-1]);
+            cd.setTotal(total);
+            cd.setRemainder(total-cd.getExisting());
+        }
+        return calendarList30;
+    }
+    private List<CalendarResponseDto> getCurrentCalendarList(Integer year,Integer month) {
+        List<CalendarResponseDto> currentCalendar = new ArrayList<>();
+        boolean isRun = false;
+        if ((year %4 == 0 && year % 100!= 0) ||(year % 400 == 0)) {
+            isRun = true;
+        }
+        int totalDays = 0;
+        for (int i = 1900; i < year; i++) {
+            if ((i %4 == 0 && i % 100!= 0) ||(i % 400 == 0)) {
+                totalDays += 366;
+            } else {
+                totalDays += 365;
+            }
+        }
+        int beforeDays = 0;
+        int currentDays = 0;
+        for (int i = 0; i < 13; i++) {
+            switch (i) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    currentDays = 31;
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    currentDays = 30;
+                    break;
+                case 2:
+                    if (isRun) {
+                        currentDays = 29;
+                    } else {
+                        currentDays = 28;
+                    }
+                    break;
+            }
+            if (i < month) {
+                beforeDays += currentDays;
+            }
+        }
+        totalDays += beforeDays;
+        int firstDayOfMonth  = totalDays % 7 + 1;
+        if (firstDayOfMonth == 7) {
+            firstDayOfMonth  = 0;
+        }
+        for (int i = 0; i < firstDayOfMonth; i++) {
+            currentCalendar.add(new CalendarResponseDto());
+        }
+        for (int i = 1; i <= currentDays; i++) {
+            String m = month < 10?"0"+month:month+"";
+            String d = i < 10?"0"+i:i+"";
+            currentCalendar.add(new CalendarResponseDto(year+"-"+m+"-"+d));
+        }
+        return currentCalendar;
+    }
+}
