@@ -1,0 +1,25 @@
+package com.example.demo.service;
+
+import com.example.demo.mapper.SetmealMapper;
+import com.example.demo.po.Setmeal;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+/**
+ * @author 26568
+ * @date 2023-07-04 9:55
+ */
+@Service
+public class SetmealService {
+    @Autowired
+    private SetmealMapper setmealMapper;
+
+    public List<Setmeal> listSetmealByType(Integer type) {
+        return setmealMapper.listSetmealByType(type);
+    }
+    public Setmeal getSetmealById(Integer smId) {
+        return setmealMapper.getSetmealById(smId);
+    }
+}
