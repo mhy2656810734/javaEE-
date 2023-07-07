@@ -1,0 +1,21 @@
+package com.example.demo.service;
+
+import com.example.demo.mapper.OverallResultMapper;
+import com.example.demo.po.OverallResult;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+/**
+ * @author 26568
+ * @date 2023-07-04 22:55
+ */
+@Service
+public class OverallResultService {
+    @Autowired
+    private OverallResultMapper overallResultMapper;
+    public List<OverallResult> listOverallResultByOrderId(Integer orderId) {
+        return overallResultMapper.listOverallResultByOrderId(orderId);
+    }
+}
