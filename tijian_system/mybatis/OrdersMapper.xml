@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.OrdersMapper">
+    <resultMap id="ordersResultMap" type="com.example.demo.po.Orders">
+        <id property="orderId" column="orderId"></id>
+        <result property="orderDate" column="orderDate"></result>
+        <result property="userId" column="userId"></result>
+        <result property="hpId" column="hpId"></result>
+        <result property="smId" column="smId"></result>
+        <result property="state" column="state"></result>
+        <association property="setmeal" javaType="com.example.demo.po.Setmeal"
+                     select="com.example.demo.mapper.SetmealMapper.getSetmealById" column="smId"></association>
+        <association property="hospital" javaType="com.example.demo.po.Hospital"
+                     select="com.example.demo.mapper.HospitalMapper.getHospitalById" column="hpId"></association>
+    </resultMap>
+    <select id="listOrdersAppointmentNumber" parameterType="com.example.demo.dto.OrdersMapperDto" resultType="com.example.demo.dto.CalendarResponseDto">
+        <foreach collection="list" item="dto" separator="union">
+            select #{dto.date} ymd, count(*) existing from orders where orderDate=#{dto.date} and hpId = #{dto.hpId}
+        </foreach>
+    </select>
+    <select id="listOrderByUserId" parameterType="com.example.demo.po.Orders" resultMap="ordersResultMap">
+        select * from orders where userId= #{userId} and state=#{state} order by orderId desc
+    </select>
+</mapper>
