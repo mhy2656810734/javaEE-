@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.SetmealDetailedMapper">
+    <resultMap id="setmealDetailedResultMap" type="com.example.demo.po.SetmealDetailed">
+        <id property="sdId" column="sdId"></id>
+        <result property="smId" column="smId"></result>
+        <result property="ciId" column="ciId"></result>
+        <association property="checkItem" javaType="com.example.demo.po.CheckItem"
+        select="com.example.demo.mapper.CheckItemMapper.getCheckItemById" column="ciId"></association>
+    </resultMap>
+    <select id="listSetmealDetailedBySmId" resultMap="setmealDetailedResultMap" parameterType="int">
+        select * from setmealDetailed where smId=#{smId} order by sdId
+    </select>
+</mapper>
