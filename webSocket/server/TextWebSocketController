@@ -1,0 +1,42 @@
+package com.example.demo.controller;
+
+import org.springframework.stereotype.Component;
+import org.springframework.web.socket.CloseStatus;
+import org.springframework.web.socket.TextMessage;
+import org.springframework.web.socket.WebSocketSession;
+import org.springframework.web.socket.config.annotation.EnableWebSocket;
+import org.springframework.web.socket.handler.TextWebSocketHandler;
+
+/**
+ * @author 26568
+ * @date 2023-07-11 9:54
+ */
+@Component
+@EnableWebSocket
+public class TextWebSocketController extends TextWebSocketHandler {
+    @Override
+    public void afterConnectionEstablished(WebSocketSession session) throws Exception {
+        // 这个方法是在websocket连接成功的时候调用的方法
+        System.out.println("websocket 连接成功！！");
+    }
+
+    @Override
+    protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
+        // 这个方法是websocket收到消息的时候自动调用的
+        // 回显服务器
+        System.out.println("websocket 收到消息"+message.toString());
+        session.sendMessage(message);
+    }
+
+    @Override
+    public void handleTransportError(WebSocketSession session, Throwable exception) throws Exception {
+        // 这个方法是websocket连接出现异常的时候被自动调用的
+        System.out.println("websocket 连接出现异常!!!");
+    }
+
+    @Override
+    public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
+        // 这个方法是websocket 连接关闭的时候被自动调用的
+        System.out.println("websocket 连接关闭！！！");
+    }
+}
